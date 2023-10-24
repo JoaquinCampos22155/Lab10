@@ -12,5 +12,34 @@ class AuthActivity : AppCompatActivity() {
         val bundle = Bundel()
         bundle.putString("message", "Integración de Firebase completa",)
         analytics.logEvent("InitScreen", bundle)
+
+        //setup
+        setup()
     }
+    private fun setup(){
+        title = "Autenticación"
+        signupButton.setOnClickListener{
+            if emailEditText.text.isNotEmpty() && passwordEditText.text.isNotEmpty()){
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(emailEditText.text.toString()
+                    , passwordEditText.text.toString()).addOnCompleteListener{
+                        if (it.isSuccessful){
+
+                        }else{
+                            showAlert()
+                        }
+                }
+
+        }
+        }
+    }
+    private fun showAlert(){
+        val builder = AlertDialog.Buillder(this)
+        builder.setTitle("error")
+        builder.setMessage("Se ha proucido un error autenticando al usuario")
+        builder.setPositiveButton("Aceptar", null)
+        val dialog:AlertDialog = builder.create()
+        dialog.show()
+
+    }
+    private fun showHome(email:String, privider:ProviderType)
 }
