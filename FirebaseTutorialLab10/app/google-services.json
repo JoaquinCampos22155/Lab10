@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1092622129228",
+    "project_id": "laboratorio10-807ac",
+    "storage_bucket": "laboratorio10-807ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1092622129228:android:fad426da6d488baadafce9",
+        "android_client_info": {
+          "package_name": "com.example.firebasetutoriallab10"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsvvV-MYWN8P3IVmYg1dTOtjJG_wpwy5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
