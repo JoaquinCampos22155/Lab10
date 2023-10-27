@@ -51,5 +51,11 @@
                 android:layout_weight="1"
                 android:text="ACCEDER" />
         </LinearLayout>
+        <Button
+            android:id="@+id/googleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="GOOGLE" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
