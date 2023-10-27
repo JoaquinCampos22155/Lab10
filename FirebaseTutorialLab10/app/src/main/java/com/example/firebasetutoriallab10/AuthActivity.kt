@@ -23,14 +23,28 @@ class AuthActivity : AppCompatActivity() {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(emailEditText.text.toString()
                     , passwordEditText.text.toString()).addOnCompleteListener{
                         if (it.isSuccessful){
-
+                            showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
                         }else{
                             showAlert()
                         }
                 }
 
+            }
+        }
+        logInButton.setOnClickListener{
+            if emailEditText.text.isNotEmpty() && passwordEditText.text.isNotEmpty()){
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(emailEditText.text.toString()
+                , passwordEditText.text.toString()).addOnCompleteListener{
+                if (it.isSuccessful){
+                    showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
+                }else{
+                    showAlert()
+                }
+            }
+
         }
         }
+
     }
     private fun showAlert(){
         val builder = AlertDialog.Buillder(this)
@@ -42,4 +56,9 @@ class AuthActivity : AppCompatActivity() {
 
     }
     private fun showHome(email:String, privider:ProviderType)
+        val homeIntent ? Intent(this, HomeActivity::class.java).apply{
+            putExtra("email", email)
+            putExtra("provider", provider.name)
+    }
+    startActivity(homeIntent)
 }
